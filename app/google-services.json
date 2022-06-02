@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "901234809132",
+    "firebase_url": "https://aviafast-test-default-rtdb.firebaseio.com",
+    "project_id": "aviafast-test",
+    "storage_bucket": "aviafast-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901234809132:android:66825a1c6ac86197b2f489",
+        "android_client_info": {
+          "package_name": "it.mirea.aviafast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901234809132-0losuosqs8eqm456mn3nckjqjo36jek7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLtZGDxrwfdE4GSW6_9473Bp5yL51je14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901234809132-0losuosqs8eqm456mn3nckjqjo36jek7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
