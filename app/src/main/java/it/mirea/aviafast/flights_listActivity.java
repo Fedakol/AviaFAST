@@ -16,8 +16,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Queue;
 
 public class flights_listActivity extends AppCompatActivity {
 
@@ -48,12 +51,10 @@ public class flights_listActivity extends AppCompatActivity {
 
 
         DBreference = FirebaseDatabase.getInstance().getReference();//сюда в референс писать аэропорт который выбрал пользователь
-
-        DBreference.addChildEventListener(new ChildEventListener() {
+        DBreference.orderByChild("origin").equalTo(airport_name_to_pass).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                flights_arraylist.add(snapshot.getValue(String.class));
+                flights_arraylist.add(snapshot.getKey());
                 flightArrayAdapter.notifyDataSetChanged();
             }
 
@@ -64,7 +65,6 @@ public class flights_listActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                flights_arraylist.remove(snapshot.getValue(String.class));
                 flightArrayAdapter.notifyDataSetChanged();
             }
 
@@ -78,6 +78,21 @@ public class flights_listActivity extends AppCompatActivity {
 
             }
         });
+
+        /*
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                flights_arraylist.add(snapshot.getValue(String.class));
+                flightArrayAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                flightArrayAdapter.notifyDataSetChanged();
+            }
+        };
+        */
         flights_listview.setAdapter(flightArrayAdapter);
     }
 }
